@@ -29,6 +29,7 @@ export const hookFactory: AccountHookFactory =
       },
       {
         revalidateOnFocus: false,
+        shouldRetryOnError: false,
       }
     );
 
@@ -60,7 +61,7 @@ export const hookFactory: AccountHookFactory =
       ...swr,
       data,
       isValidating,
-      isLoading: isLoading || isValidating,
+      isLoading: isLoading as boolean,
       isInstalled: ethereum?.isMetaMask || false,
       mutate,
       connect,
